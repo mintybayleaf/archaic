@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Bailey Kocin" />
+    <meta name="description" content="Archaic CPU Emulators" />
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <script type="module" src="src/main.mjs"></script>
+    <title>Archaic</title>
+</head>
+<body>
+    <header>
+        <h1>Archaic CPU Emulators</h1>
+    </header>
+    <aside>
+        <details>
+            <summary>
+                The application pretty much does what it says it does.... emulates CPUs
+            </summary>
+            <p>
+                The CPUs are emulated as in the assembly code is compiled and executed on a virtual CPU with a virtual amount of memory.
+            </p>
+            <p>The assembly code is on the left for the CPU you are targeting, and then you can see the emulation running your code on the right side of the screen.</p>
+        </details>
+    </aside>
+    <main>
+        <div id="assembly">
+            <form>
+                <label id="assembly-input-label" for="assembly-code">Assembly Code</label>
+                <textarea id="assembly-code"></textarea>
+                <label id="assembly-file-label" for="assembly-file-input">
+                    <span>Select an ASM (.S) file</span>
+                    <input id="assembly-file-input" type="file" accept=".S" style="display: none" />
+                </label>
+
+            </form>
+        </div>
+        <div id="emulator">
+            <form>
+                <label id="emulator-select-label" for="emulator-select">emulator</label>
+                <div id="emulator-select-content">
+                    <select id="emulator-select">
+                        <option value="">CPU</option>
+                        <option value="chip-8" id="chip-8">chip-8</option>
+                    </select>
+                    <button>Run/Reset</button>
+                    <div id="memory-input-container">
+                        <label id="memory-input-label" for="memory-input">Memory</label>
+                        <input id="memory-input" type="number" step="1024" min="1024" max="1048576" />
+                    </div>
+                </div>
+            </form>
+            <div id="display">
+                <ul>
+                    <li id="registers-tab">Registers</li>
+                    <li id="memory-tab">Memory</li>
+                    <li id="graphics-tab">Graphics</li>
+                    <li id="info-tab">Info</li>
+                </ul>
+                <div id="renderers">
+                    <canvas id="registers" class="hidden"></canvas>
+                    <canvas id="memory" class="hidden"></canvas>
+                    <canvas id="graphics" class="hidden"></canvas>
+                    <canvas id="info"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <p>
+            Archaic &#169; Bailey Kocin <span id="current-year"></span>
+        </p>
+    </footer>
+    <script>
+        const currentYear = document.querySelector("#current-year");
+        currentYear.innerText = `${new Date().getFullYear()}`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+@import "https://fonts.googleapis.com/css?family=Lily+Script+One";
+
+* {
+    box-sizing: border-box;
+    transition: all ease-in-out 0.4s;
+}
+
+@property --primary-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #2e3440;
+}
+
+@property --secondary-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #3b4252;
+}
+
+@property --tertiary-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #88c0d0;
+}
+
+@property --subtle-white {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #d8dee9;
+}
+
+html {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--subtle-white);
+
+    padding: 1rem;
+    min-height: 100%;
+    margin: 0;
+
+    display: grid;
+    grid-template-rows: fit-content(5vh) auto auto fit-content(5vh);
+    row-gap: 2rem;
+
+    font-family: monospace;
+    font-size: clamp(0.8rem, 5vw, 1.3rem);
+}
+
+main {
+    padding: 1rem;
+    margin: auto;
+
+    min-width: 65vw;
+    min-height: 75vh;
+
+    display: grid;
+    grid-template-columns: auto 2fr;
+    column-gap: 1rem;
+}
+
+aside {
+    text-align: center;
+}
+
+footer {
+    padding: 1rem;
+    font-family: monospace;
+    font-size: clamp(0.8rem, 5vw, 1.5rem);
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--tertiary-color);
+
+    margin: 0;
+    padding: 1rem;
+
+    font-family: "Lily Script", cursive;
+    text-shadow: 0 0 2px var(--subtle-white);
+    text-transform: capitalize;
+    text-align: center;
+}
+
+
+label, textarea, button, select, option, input {
+    background-color: var(--secondary-color);
+    color: var(--subtle-white);
+    padding: 1rem;
+
+    resize: none;
+    display: block;
+
+    font-family: monospace;
+    font-size: clamp(0.8rem, 5vw, 1.3rem);
+
+    border: 4px solid var(--secondary-color);
+    border-radius: 12px;
+}
+
+label {
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: clamp(1.3rem, 5vw, 1.7rem);
+    border: 1px solid var(--tertiary-color)
+}
+
+#assembly-file-label:focus, #memory-input:focus, label:focus, option:focus, textarea:focus, select:focus, button:focus {
+    outline: var(--tertiary-color);
+    border: 1px solid var(--tertiary-color);
+}
+
+#assembly-file-label:hover, #memory-input:hover, select:hover, button:hover {
+    cursor: pointer;
+    border: 1px solid var(--tertiary-color);
+    transform: scale(1.1);
+}
+
+#assembly {
+    padding: 1rem;
+}
+
+#assembly > form {
+    display: grid;
+    row-gap: 1.2rem;
+    grid-template-rows: fit-content(2vh) auto fit-content(5vh);
+    width: 100%;
+    height: 100%;
+}
+
+#assembly-code {
+    padding: 0.8rem;
+    font-size: clamp(0.8rem, 5vw, 1.1rem);
+    min-width: 20vw;
+}
+
+#assembly-file-label {
+    color: var(--subtle-white);
+    font-family: monospace;
+    font-size: clamp(0.8rem, 5vw, 1.3rem);
+    text-transform: none;
+    border: none;
+}
+
+#emulator {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    row-gap: 1.2rem;
+    grid-template-rows: fit-content(1vh) auto;
+    padding: 1rem;
+}
+
+#emulator > form {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto;
+    row-gap: 1.2rem;
+}
+
+#emulator-select-content {
+    max-height: 10vh;
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-flow: column dense;
+    column-gap: 1.5rem;
+}
+
+#emulator-select-content > * {
+    padding: 0.7rem;
+}
+
+#memory-input-container {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    column-gap: 0.8rem;
+    justify-content: space-between;
+}
+
+#memory-input {
+    color: var(--subtle-white);
+    font-family: monospace;
+    font-size: clamp(0.8rem, 5vw, 1.3rem);
+    text-transform: none;
+    border: none;
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+#memory-input-label {
+    color: var(--subtle-white);
+    font-family: monospace;
+    font-size: clamp(0.8rem, 5vw, 1.3rem);
+    text-transform: none;
+    border: none;
+}
+
+#display {
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    border: 1px solid var(--tertiary-color);
+    position: relative;
+
+    display: grid;
+    grid-template-rows: fit-content(3vh) auto;
+    row-gap: 0.5rem;
+    margin-top: 40px;
+}
+
+#display ul {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    justify-content: center;
+    /*grid-template-columns: auto;*/
+    /*grid-auto-flow: column dense;*/
+    /*column-gap: 1rem;*/
+    position: absolute;
+    padding: 0;
+    top: -40px;
+    width: 100%;
+}
+
+#display li {
+    display: inline-block;
+    max-height: fit-content;
+    background-color: var(--tertiary-color);
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 12px 12px 0 0;
+    border-bottom: 0;
+    color: var(--primary-color);
+    min-width: 8vw;
+    text-align: center;
+}
+
+#display li:hover {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+}
+
+#renderers {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+
+#registers, #memory, #graphics, #info {
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
