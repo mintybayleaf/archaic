@@ -28,31 +28,32 @@ const memoryTab = document.querySelector("#memory-tab");
 const graphicsTab = document.querySelector("#graphics-tab");
 const infoTab = document.querySelector("#info-tab");
 
+
 registersTab.addEventListener("click", (event) => {
     document.querySelector("#registers").classList.remove("hidden");
     document.querySelector("#memory").classList.add("hidden");
     document.querySelector("#graphics").classList.add("hidden");
     document.querySelector("#info").classList.add("hidden");
 
-})
+});
 
 memoryTab.addEventListener("click", (event) => {
     document.querySelector("#registers").classList.add("hidden");
     document.querySelector("#memory").classList.remove("hidden");
     document.querySelector("#graphics").classList.add("hidden");
     document.querySelector("#info").classList.add("hidden");
-})
+});
 
 graphicsTab.addEventListener("click", (event) => {
     document.querySelector("#registers").classList.add("hidden");
     document.querySelector("#memory").classList.add("hidden");
     document.querySelector("#graphics").classList.remove("hidden");
     document.querySelector("#info").classList.add("hidden");
-})
+});
 
 infoTab.addEventListener("click", (event) => {
     document.querySelector("#registers").classList.add("hidden");
     document.querySelector("#memory").classList.add("hidden");
     document.querySelector("#graphics").classList.add("hidden");
     document.querySelector("#info").classList.remove("hidden");
-})
+});
